@@ -17,8 +17,16 @@
                     <th class="todos-column" scope="row">@t.TaskId</th>
                     <td class="todos-column">@t.Name</td>
                     <td class="buttons-column">
-                        <input type="submit" class="btn btn-danger" value="Delete" onClick="deleteTodo(@t.TaskId)" />
-                        <input type="submit" class="btn btn-primary" value="Update" onClick="populateForm(@t.TaskId)" />
+                        <form asp-controller="Home" asp-action="Delete" asp-route-id="@t.TaskId" method="post">
+                            <button type="submit" class="btn btn-danger">
+                                Delete
+                            </button>
+                        </form> 
+                        <form asp-controller="Home" asp-action="Update" asp-route-id="@t.TaskId" method="post">
+                            <button type="submit" class="btn btn-danger">
+                                Update
+                            </button>
+                        </form>
                     </td>
                 </tr>
             }

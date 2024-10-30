@@ -37,5 +37,15 @@ namespace TaskToDo_WebApp.Controllers
                 ToDoTasksList = taskList,
             };
         }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var task = new ToDoTask() { TaskId = id };
+            _db.Remove(task);
+            _db.SaveChangesAsync();
+
+            return Redirect("http://localhost:5024/");
+        }
     }
 }
