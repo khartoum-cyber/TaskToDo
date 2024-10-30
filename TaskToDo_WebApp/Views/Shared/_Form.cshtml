@@ -1,14 +1,14 @@
-﻿@model TaskToDo_WebApp.Models.ToDoTask
+﻿@model TaskToDo_WebApp.Models.ViewModel.ToDoTaskVM
 
-<form id="form-action" method="post" class="form-horizontal" role="form">
+<form asp-controller="Home" asp-action="Insert" id="form-action" method="post" class="form-horizontal" role="form">
     <div asp-validation-summary="All" class="text-danger"></div>
 
     <div class="row justify-content-center">
         <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10">
             <label class="form-label">Enter task name :</label>
-            <input asp-for="TaskId" type="hidden" class="form-control" />
-            <input asp-for="Name" class="form-control" />
-            <span asp-validation-for="Name" class="text-danger"></span>
+            <input asp-for="ToDoTask.TaskId" type="hidden" class="form-control" />
+            <input asp-for="ToDoTask.Name" class="form-control" />
+            <span asp-validation-for="ToDoTask.Name" class="text-danger"></span>
         </div>
     </div>
     <div class="row justify-content-center">

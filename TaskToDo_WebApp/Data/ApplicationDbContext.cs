@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TaskToDo_WebApp.Models;
 
-namespace TaskToDo_DataAccess
+namespace TaskToDo_WebApp.Data
 {
     public class ApplicationDbContext : DbContext
     {
