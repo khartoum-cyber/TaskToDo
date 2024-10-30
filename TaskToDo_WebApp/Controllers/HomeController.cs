@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TaskToDo_WebApp.Data;
 using TaskToDo_WebApp.Models;
 using TaskToDo_WebApp.Models.ViewModel;
@@ -23,6 +24,7 @@ namespace TaskToDo_WebApp.Controllers
         public RedirectResult Insert(ToDoTaskVM task)
         {
             _db.Add(task.ToDoTask);
+            //_db.Entry(task).State = EntityState.Detached;
             _db.SaveChangesAsync();
 
             return Redirect("http://localhost:5024/");
@@ -44,6 +46,25 @@ namespace TaskToDo_WebApp.Controllers
             var task = new ToDoTask() { TaskId = id };
             _db.Remove(task);
             _db.SaveChangesAsync();
+
+            return Redirect("http://localhost:5024/");
+        }
+
+        public IActionResult Update(int id)
+        {
+            ToDoTaskVM obj = new()
+            {
+                ToDoTask = _db.Tasks.AsNoTracking().FirstOrDefault(u => u.TaskId == id)
+            };
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        public IActionResult Update(ToDoTaskVM task)
+        {
+            _db.Update(task.ToDoTask);
+            _db.SaveChanges();
 
             return Redirect("http://localhost:5024/");
         }

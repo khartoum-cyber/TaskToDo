@@ -25,11 +25,11 @@
                         </form> 
                     </td>
                     <td class="buttons-column">
-                        <form asp-controller="Home" asp-action="Update" asp-route-id="@t.TaskId" method="post">
-                            <button type="submit" class="btn btn-primary" style="">
+                        <a asp-controller="Home" asp-action="Update" asp-route-id="@t.TaskId">
+                            <button class="btn btn-primary">
                                 Update
                             </button>
-                        </form>
+                        </a>
                     </td>
                 </tr>
             }
