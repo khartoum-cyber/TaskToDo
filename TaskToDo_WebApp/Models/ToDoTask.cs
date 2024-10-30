@@ -2,10 +2,10 @@
 
 namespace TaskToDo_WebApp.Models
 {
-    public class Task
+    public class ToDoTask
     {
         [Key]
-        public int Id { get; set; }
+        public int TaskId { get; set; }
         [Required]
         public string Name { get; set; }
     }

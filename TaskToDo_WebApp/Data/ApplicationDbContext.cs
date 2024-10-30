@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TaskToDo_WebApp.Models;
 
 namespace TaskToDo_DataAccess
 {
