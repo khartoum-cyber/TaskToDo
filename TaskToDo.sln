@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskToDo_WebApp", "TaskToDo_WebApp\TaskToDo_WebApp.csproj", "{EC7B9AD7-4A84-4887-9EDE-06C4C2AC50C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskToDo_DataAccess", "TaskToDo_DataAccess\TaskToDo_DataAccess.csproj", "{AD2AAFA6-371E-4F22-8A80-3B0817D0E71F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EC7B9AD7-4A84-4887-9EDE-06C4C2AC50C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC7B9AD7-4A84-4887-9EDE-06C4C2AC50C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC7B9AD7-4A84-4887-9EDE-06C4C2AC50C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD2AAFA6-371E-4F22-8A80-3B0817D0E71F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD2AAFA6-371E-4F22-8A80-3B0817D0E71F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD2AAFA6-371E-4F22-8A80-3B0817D0E71F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD2AAFA6-371E-4F22-8A80-3B0817D0E71F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
