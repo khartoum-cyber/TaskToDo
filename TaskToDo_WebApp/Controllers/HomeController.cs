@@ -16,19 +16,18 @@ namespace TaskToDo_WebApp.Controllers
 
         public IActionResult Index()
         {
-            var toDoListViewModel = GetAll();
-            return View(toDoListViewModel);
+            return View(_db.Tasks.ToList());
         }
 
-        [HttpPost]
-        public RedirectResult Insert(ToDoTaskVM task)
-        {
-            _db.Add(task.ToDoTask);
-            //_db.Entry(task).State = EntityState.Detached;
-            _db.SaveChangesAsync();
+        //[HttpPost]
+        //public RedirectResult Insert(ToDoTaskVM task)
+        //{
+        //    _db.Add(task.ToDoTask);
+        //    //_db.Entry(task).State = EntityState.Detached;
+        //    _db.SaveChangesAsync();
 
-            return Redirect("http://localhost:5024/");
-        }
+        //    return Redirect("http://localhost:5024/");
+        //}
 
         public ToDoTaskVM GetAll()
         {
@@ -40,33 +39,33 @@ namespace TaskToDo_WebApp.Controllers
             };
         }
 
-        [HttpPost]
-        public IActionResult Delete(int id)
-        {
-            var task = new ToDoTask() { TaskId = id };
-            _db.Remove(task);
-            _db.SaveChangesAsync();
+        //[HttpPost]
+        //public IActionResult Delete(int id)
+        //{
+        //    var task = new ToDoTask() { TaskId = id };
+        //    _db.Remove(task);
+        //    _db.SaveChangesAsync();
 
-            return Redirect("http://localhost:5024/");
-        }
+        //    return Redirect("http://localhost:5024/");
+        //}
 
-        public IActionResult Update(int id)
-        {
-            ToDoTaskVM obj = new()
-            {
-                ToDoTask = _db.Tasks.AsNoTracking().FirstOrDefault(u => u.TaskId == id)
-            };
+        //public IActionResult Update(int id)
+        //{
+        //    ToDoTaskVM obj = new()
+        //    {
+        //        ToDoTask = _db.Tasks.AsNoTracking().FirstOrDefault(u => u.TaskId == id)
+        //    };
 
-            return View(obj);
-        }
+        //    return View(obj);
+        //}
 
-        [HttpPost]
-        public IActionResult Update(ToDoTaskVM task)
-        {
-            _db.Update(task.ToDoTask);
-            _db.SaveChanges();
+        //[HttpPost]
+        //public IActionResult Update(ToDoTaskVM task)
+        //{
+        //    _db.Update(task.ToDoTask);
+        //    _db.SaveChanges();
 
-            return Redirect("http://localhost:5024/");
-        }
+        //    return Redirect("http://localhost:5024/");
+        //}
     }
 }
