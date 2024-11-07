@@ -35,26 +35,27 @@ namespace TaskToDo_WebApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(task);
-
-            //_db.Add(task);
-            //_db.SaveChanges();
-            //return RedirectToAction(nameof(Index));
         }
 
-        public ToDoTaskVM GetAll()
+        //get
+        public IActionResult Delete(int? id)
         {
-            List<ToDoTask> taskList = _db.Tasks.ToList();
-
-            return new ToDoTaskVM
+            if (id == null)
             {
-                ToDoTasksList = taskList,
-            };
+                return NotFound();
+            }
+
+            var task = _db.Tasks
+                .FirstOrDefault(t => t.TaskId == id);
+
+            return View(task);
         }
 
         //[HttpPost]
         //public IActionResult Delete(int id)
         //{
-        //    var task = new ToDoTask() { TaskId = id };
+        //    var task = _db.Tasks
+        //        .FirstOrDefaultAsync(t => t.TaskId == id);
         //    _db.Remove(task);
         //    _db.SaveChangesAsync();
 

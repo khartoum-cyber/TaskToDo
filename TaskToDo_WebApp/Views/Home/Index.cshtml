@@ -35,7 +35,7 @@
                     <th class="todos-column" scope="row">@t.TaskId</th>
                     <td class="todos-column">@t.Name</td>
                     <td class="buttons-column">
-                        <form asp-controller="Home" asp-action="Delete" asp-route-id="@t.TaskId" method="post">
+                        <form asp-controller="Home" asp-action="Delete" asp-route-id="@t.TaskId">
                             <button type="submit" class="btn btn-danger">
                                 Delete
                             </button>
