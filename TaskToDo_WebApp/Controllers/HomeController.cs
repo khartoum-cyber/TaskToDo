@@ -34,6 +34,7 @@ namespace TaskToDo_WebApp.Controllers
                 _db.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(task);
         }
 
@@ -51,16 +52,21 @@ namespace TaskToDo_WebApp.Controllers
             return View(task);
         }
 
-        //[HttpPost]
-        //public IActionResult Delete(int id)
-        //{
-        //    var task = _db.Tasks
-        //        .FirstOrDefaultAsync(t => t.TaskId == id);
-        //    _db.Remove(task);
-        //    _db.SaveChangesAsync();
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var task = _db.Tasks.Find(id);
 
-        //    return Redirect("http://localhost:5024/");
-        //}
+            if (task != null)
+            {
+                _db.Tasks.Remove(task);
+            }
+
+            _db.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
 
         //public IActionResult Update(int id)
         //{

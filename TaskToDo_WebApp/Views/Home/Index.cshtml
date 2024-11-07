@@ -39,11 +39,11 @@
                     <th class="todos-column" scope="row">@t.TaskId</th>
                     <td class="todos-column">@t.Name</td>
                     <td class="buttons-column">
-                        <form asp-controller="Home" asp-action="Delete" asp-route-id="@t.TaskId">
+                        <a asp-controller="Home" asp-action="Delete" asp-route-id="@t.TaskId">
                             <button type="submit" class="btn btn-danger">
                                 Delete
                             </button>
-                        </form> 
+                        </a>
                     </td>
                     <td class="buttons-column">
                         <a asp-controller="Home" asp-action="Update" asp-route-id="@t.TaskId">
