@@ -26,13 +26,15 @@ namespace TaskToDo_WebApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Insert([Bind("TaskId,Name")] ToDoTask task)
+        public IActionResult Insert(ToDoTask task)
         {
-            if (!ModelState.IsValid) return View(task);
-
-            _db.Add(task);
-            _db.SaveChanges();
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {
+                _db.Add(task);
+                _db.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(task);
         }
 
         public ToDoTaskVM GetAll()
