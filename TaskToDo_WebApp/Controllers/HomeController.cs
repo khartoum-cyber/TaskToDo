@@ -19,15 +19,20 @@ namespace TaskToDo_WebApp.Controllers
             return View(_db.Tasks.ToList());
         }
 
-        //[HttpPost]
-        //public RedirectResult Insert(ToDoTaskVM task)
-        //{
-        //    _db.Add(task.ToDoTask);
-        //    //_db.Entry(task).State = EntityState.Detached;
-        //    _db.SaveChangesAsync();
+        public IActionResult Insert()
+        {
+            return View();
+        }
 
-        //    return Redirect("http://localhost:5024/");
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Insert([Bind("TaskId,Name")]ToDoTask task)
+        {
+            _db.Add(task);
+            _db.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
 
         public ToDoTaskVM GetAll()
         {
