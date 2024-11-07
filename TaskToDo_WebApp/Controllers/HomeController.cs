@@ -35,6 +35,10 @@ namespace TaskToDo_WebApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(task);
+
+            //_db.Add(task);
+            //_db.SaveChanges();
+            //return RedirectToAction(nameof(Index));
         }
 
         public ToDoTaskVM GetAll()
