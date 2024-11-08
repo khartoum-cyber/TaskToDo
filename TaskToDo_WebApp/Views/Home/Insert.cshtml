@@ -4,27 +4,37 @@
     ViewData["Title"] = "Insert Task";
 }
 
-<form asp-action="Insert" method="post" class="form-horizontal">
-    <div class="row justify-content-center">
-        <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10">
-            <label class="form-label">Enter task name :</label>
-            <input asp-for="TaskId" type="hidden" class="form-control"/>
-            <input asp-for="Name" class="form-control" ID="task"/>
-            <span asp-validation-for="Name" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10 mt-3 mb-1">
-            <input type="submit" class="btn btn-success" value="Add task"/>
-        </div>
-    </div>
-</form>
+<div class="row justify-content-center">
+    <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10">
+        <form asp-action="Insert">
+            <table class="table">
+                <thead>
+                <tr class="table-primary">
+                    <th scope="row">Enter task name :</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody class="border-1">
+                <tr>
+                    <td class="buttons-column">
+                        <input asp-for="Name" class="form-control"/>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </td>
+                    <td class="buttons-column">
+                        <input type="hidden" asp-for="TaskId" />
+                        <input type="submit" value="Add task" class="btn btn-success" />
+                    </td>
 
-    <div class="row justify-content-center">
-        <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10 mt-3 mb-5">
-            <a asp-action="Index">Back to List</a>
-        </div>
+                    <td class="buttons-column">
+                        <a asp-action="Index" class="btn btn-secondary">Back</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
     </div>
+</div>
 
 @section Scripts {
     @{
