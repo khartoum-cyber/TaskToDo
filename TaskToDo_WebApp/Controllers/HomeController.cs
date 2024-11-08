@@ -66,15 +66,23 @@ namespace TaskToDo_WebApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //public IActionResult Update(int id)
-        //{
-        //    ToDoTaskVM obj = new()
-        //    {
-        //        ToDoTask = _db.Tasks.AsNoTracking().FirstOrDefault(u => u.TaskId == id)
-        //    };
+        //get
+        public IActionResult Update(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-        //    return View(obj);
-        //}
+            var task = _db.Tasks.Find(id);
+
+            if (task == null)
+            {
+                return NotFound();
+            }
+
+            return View(task);
+        }
 
         //[HttpPost]
         //public IActionResult Update(ToDoTaskVM task)
