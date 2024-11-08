@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TaskToDo_WebApp.Data;
 using TaskToDo_WebApp.Models;
 
@@ -84,13 +85,39 @@ namespace TaskToDo_WebApp.Controllers
             return View(task);
         }
 
-        //[HttpPost]
-        //public IActionResult Update(ToDoTaskVM task)
-        //{
-        //    _db.Update(task.ToDoTask);
-        //    _db.SaveChanges();
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(int id, ToDoTask task)
+        {
+            if (id != task.TaskId)
+            {
+                return NotFound();
+            }
 
-        //    return Redirect("http://localhost:5024/");
-        //}
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _db.Update(task);
+                    _db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!TaskExists(task.TaskId))
+                    {
+                        return NotFound();
+                    }
+
+                    throw;
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(task);
+        }
+
+        private bool TaskExists(int? id)
+        {
+            return _db.Tasks.Any(t => t.TaskId == id);
+        }
     }
 }
