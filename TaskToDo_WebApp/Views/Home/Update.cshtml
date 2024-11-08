@@ -6,30 +6,32 @@
 
 <div class="row justify-content-center">
     <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10">
-        <table class="table">
-            <thead>
-            <tr class="table-primary">
-                <th scope="row">Update Task</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <form method="post">
-                    <td class="buttons-column">
-                        <input asp-for="Name" class="form-control"/>
-                    </td>
-                    <td class="buttons-column">
-                        <button type="submit" class="btn btn-primary">Update</button>
-                    </td>
-                </form>
+        <form asp-action="Update">
+            <table class="table">
+                <thead>
+                    <tr class="table-primary">
+                        <th scope="row">Update Task</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="buttons-column">
+                            <input asp-for="Name" class="form-control"/>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </td>
+                        <td class="buttons-column">
+                            <input type="hidden" asp-for="TaskId" />
+                            <input type="submit" value="Update" class="btn btn-primary" />
+                        </td>
 
-                <td class="buttons-column">
-                    <a asp-action="Index" class="btn btn-secondary">Back</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                        <td class="buttons-column">
+                            <a asp-action="Index" class="btn btn-secondary">Back</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
     </div>
 </div>
