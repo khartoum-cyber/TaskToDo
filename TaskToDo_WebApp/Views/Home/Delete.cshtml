@@ -9,26 +9,26 @@
         <form asp-action="Delete">
             <table class="table">
                 <thead>
-                <tr class="table-primary">
-                    <th scope="row">Delete Task - Are you sure you want to delete this task ?</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                </tr>
+                    <tr class="table-primary">
+                        <th scope="row">Delete Task - Are you sure you want to delete this task ?</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td class="buttons-column">
-                        @Html.DisplayFor(model => model.Name)
-                    </td>
-                    <td class="buttons-column">
-                        <input type="hidden" asp-for="TaskId" />
-                        <input type="submit" value="Delete" class="btn btn-danger" />
-                    </td>
+                <tbody class="border-1">
+                    <tr>
+                        <td class="buttons-column">
+                            @Html.DisplayFor(model => model.Name)
+                        </td>
+                        <td class="buttons-column">
+                            <input type="hidden" asp-for="TaskId" />
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </td>
 
-                    <td class="buttons-column">
-                        <a asp-action="Index" class="btn btn-secondary">Back</a>
-                    </td>
-                </tr>
+                        <td class="buttons-column">
+                            <a asp-action="Index" class="btn btn-secondary">Back</a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </form>
