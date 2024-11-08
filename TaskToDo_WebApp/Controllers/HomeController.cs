@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using TaskToDo_WebApp.Data;
 using TaskToDo_WebApp.Models;
-using TaskToDo_WebApp.Models.ViewModel;
 
 namespace TaskToDo_WebApp.Controllers
 {
