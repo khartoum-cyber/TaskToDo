@@ -26,7 +26,7 @@
         <table class="table">
             <thead>
             <tr class="table-primary">
-                <th scope="col">Id</th>
+                <th scope="col">Date Added</th>
                 <th scope="col">Name</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
@@ -36,8 +36,8 @@
             @foreach (var t in Model)
             {
                 <tr>
-                    <th class="todos-column" scope="row">@t.TaskId</th>
-                    <td class="todos-column w-75">@t.Name</td>
+                    <td class="todos-column">@t.DateAdded</td>
+                    <td class="todos-column w-50">@t.Name</td>
                     <td class="buttons-column">
                         <a asp-controller="Home" asp-action="Delete" asp-route-id="@t.TaskId">
                             <button type="submit" class="btn btn-danger">
