@@ -36,7 +36,7 @@
             @foreach (var t in Model)
             {
                 <tr>
-                    <td class="todos-column">@t.DateAdded</td>
+                        <td class="todos-column">@t.DateAdded.ToShortDateString()</td>
                     <td class="todos-column w-50">@t.Name</td>
                     <td class="buttons-column">
                         <a asp-controller="Home" asp-action="Delete" asp-route-id="@t.TaskId">

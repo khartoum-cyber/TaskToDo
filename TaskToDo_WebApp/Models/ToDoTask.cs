@@ -6,10 +6,12 @@ namespace TaskToDo_WebApp.Models
     {
         [Key]
         public int? TaskId { get; set; }
+
         [Required]
         public string Name { get; set; }
+
         [Display(Name = "Date Added")]
         [DataType(DataType.Date)]
-        public DateTime DateAdded { get; set; } = DateTime.Now;
+        public DateTime DateAdded { get; set; } = DateTime.Now.Date;
     }
 }
