@@ -18,6 +18,25 @@ namespace TaskToDo_WebApp.Controllers
             return View(_db.Tasks.ToList());
         }
 
+        [HttpGet]
+        public IActionResult Index(string searchDate)
+        {
+            if (_db.Tasks == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.Tasks'  is null.");
+            }
+
+            var tasks = from t in _db.Tasks
+                select t;
+
+            if (!string.IsNullOrEmpty(searchDate))
+            {
+                tasks = tasks.Where(t => t.DateAdded == Convert.ToDateTime(searchDate));
+            }
+
+            return View(tasks.ToList());
+        }
+
         public IActionResult Insert()
         {
             return View();
