@@ -15,7 +15,7 @@
 <form asp-controller="Home" asp-action="Index">
     <div class="row justify-content-center">
         <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10 mb-3">
-            <label>Date added: <input type="text" name="SearchString"/></label>
+            <label>Date added: <input type="text" name="SearchDate"/></label>
             <input type="submit" value="Filter"/>
         </div>
     </div>
@@ -37,7 +37,7 @@
             {
                 <tr>
                     <th class="todos-column" scope="row">@t.TaskId</th>
-                    <td class="todos-column">@t.Name</td>
+                    <td class="todos-column w-75">@t.Name</td>
                     <td class="buttons-column">
                         <a asp-controller="Home" asp-action="Delete" asp-route-id="@t.TaskId">
                             <button type="submit" class="btn btn-danger">
